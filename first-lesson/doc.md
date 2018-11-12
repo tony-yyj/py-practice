@@ -179,3 +179,36 @@ print(T[2]) # 元组的第二个元素
 ```
 如果在程序中以列表的形式传递一个对象的集合，它可能在任何地方改变；如果使用元组，则无法改变。也就是说，元组提供了一种完整性约束。
 ## 文件
+没有特定的常亮语法创建文件。需要创建一个文件对象，需要调用内置的`open`函数以字符串的形式传递它一个**外部的文件名**以及一个**处理模式的字符串**。
+例如，创建文件，并写入对应的内容，然后关闭文件：
+``` python 
+f = open('data.txt', 'w')
+f.write('hello \n')
+f.write('world \n')
+f.close()
+```
+这样，在当前文件夹下创建了一个文件（文件名可以是完整的路径）。
+
+为了读取刚写入的内容，重新以`r`处理模式打开文件，读取输入。对脚本而言文件的内容总是字符串，无论文件包含的数据是什么类型。
+例如，读取刚刚创建的文件：
+``` python
+f = open('data.txt', 'r')
+text = f.read()
+print(text.split())
+# 控制台输出：['hello', 'world']
+```
+## 用户自定义的类
+可以使用关键字`class`来自定义类，类定义了新的对象类型，扩展了核心类型。例如：
+``` python
+class Worker:
+    def __init__(self, name, pay):
+        self.name = name
+        self.pay = pay
+    def lastName(self):
+        return self.name.split()[-1]
+    def giveRaise(self, percent):
+        self.pay *= (1.0 + percent)
+bob = Worker('Bob Smith', 5000)
+print(bob.lastName())
+# 控制台输出：Smith
+```
