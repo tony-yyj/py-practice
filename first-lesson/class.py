@@ -3,14 +3,15 @@ class Worker:
         self.name = name
         self.pay = pay
 
-    def lastName(self):
+    def last_name(self):
         return self.name.split()[-1]
     
-    def giveRaise(self, percent):
+    def give_raise(self, percent):
         self.pay *= (1.0 + percent)
+
 
 bob = Worker('Bob Smith', 5000)
 
 print(bob)
 
-print(bob.lastName())
+print(bob.last_name())
